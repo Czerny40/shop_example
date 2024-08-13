@@ -9,17 +9,17 @@ import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class ItemController {
-
+public class NoticeController {
     private final ItemRepository itemRepository;
 
 
-    @GetMapping("/list")
+    @GetMapping("/notice")
     String list(Model model){
         List<Item> result = itemRepository.findAll();
         model.addAttribute("items", result);
 
-        return "list.html";
+        return "notice.html";
     }
+
 
 }
