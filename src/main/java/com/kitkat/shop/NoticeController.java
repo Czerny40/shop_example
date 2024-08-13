@@ -10,13 +10,13 @@ import java.util.List;
 @Controller
 @RequiredArgsConstructor
 public class NoticeController {
-    private final ItemRepository itemRepository;
+    private final NoticeRepository noticeRepository;
 
 
     @GetMapping("/notice")
     String list(Model model){
-        List<Item> result = itemRepository.findAll();
-        model.addAttribute("items", result);
+        List<Notice> result = noticeRepository.findAll();
+        model.addAttribute("notices", result);
 
         return "notice.html";
     }

@@ -5,14 +5,13 @@
   <meta name="viewport"
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <title>공지사항</title>
 </head>
 <body>
 
-<div class="card" th:each="i : ${items}">
+<div class="card" th:each="n : ${notices}">
   <div>
-    <h4 th:text="${i.title}"></h4>
-    <p th:text="${i.date}"></p>
+    <p th:text="${n.id} + ' ' + ${n.title} + ' ' + ${#dates.format(n.date, 'yyyy-MM-dd')}"></p>
   </div>
 </div>
 
