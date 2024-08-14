@@ -1,4 +1,4 @@
-package com.kitkat.shop;
+package com.kitkat.shop.notice;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -11,7 +11,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NoticeController {
     private final NoticeRepository noticeRepository;
-
 
     @GetMapping("/notice")
     String list(Model model){

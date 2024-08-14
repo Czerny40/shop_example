@@ -1,4 +1,4 @@
-package com.kitkat.shop;
+package com.kitkat.shop.notice;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

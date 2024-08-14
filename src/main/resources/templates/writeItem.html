@@ -5,21 +5,18 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>상품목록</title>
+    <title>상품등록</title>
     <link href="/main.css" rel="stylesheet">
 </head>
 <body>
 
 <div th:replace="~{ nav.html::navbar }"></div>
 
-  <div class="card" th:each="i : ${items}">
-      <img src="https://placehold.co/300">
-      <div>
-          <h4 th:text="${i.title}"></h4>
-          <p th:text="${i.price} + 원"></p>
-          <a th:href="@{'/detail/' + ${i.id}}">상세정보</a>
-      </div>
-  </div>
+    <form action="/addItem" method="post">
+        <p>상품명 <input name="title"></p>
+        <p>가격 <input name="price"></p>
+        <button type='submit'>등록하기</button>
+    </form>
 
 </body>
 </html>
