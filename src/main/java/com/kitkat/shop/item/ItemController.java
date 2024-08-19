@@ -1,6 +1,7 @@
 package com.kitkat.shop.item;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +16,14 @@ import java.util.Optional;
 public class ItemController {
 
     private final ItemRepository itemRepository;
+    private final ItemService itemService;
 
+//    롬북 안쓰면 이 코드 추가해줘야함
+//    @Autowired
+//    public ItemController(ItemRepository itemRepository, ItemService itemService) {
+//        this.itemRepository = itemRepository;
+//        this.itemService = itemService;
+//    }
 
     @GetMapping("/list")
     String list(Model model){
@@ -37,12 +45,8 @@ public class ItemController {
 
     @PostMapping("/addItem")    // 경로 확인 잘하기
     String addPost(@RequestParam Map<String, String> formData){   // @ModelAttribute 쓰면 더쉽게 가능
-        Item newItem = new Item();
-        newItem.setTitle(formData.get("title"));
-        newItem.setPrice(Integer.valueOf(formData.get("price")));
 
-        itemRepository.save(newItem);
-
+        itemService.saveItem(formData);
         return "redirect:/list";    //  list 페이지로 리다이렉트
     }
 
